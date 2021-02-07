@@ -1,38 +1,111 @@
-.App {
-  text-align: center;
+* {
+    margin: 0;
+    padding: 0;
+}
+ul li {
+    list-style: none;
+}
+img {
+    max-width: 100%;
+}
+body {
+    font-family: arial;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.wrapper {
+    display: flex; 
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+}
+/* Header  */
+header {
+    background-color: #3b5998;
+    padding: 10px 0 ;
+    margin-bottom: 10px;
+}
+.header-row {
+    display: flex;
+    color: #fff;
+    font-size: 40px;
+    font-weight: 600;
+}
+.header-row a:hover{
+    color:rgb(238, 174, 56);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Main */
+
+main {
+    flex: 1 1 100%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.main-row {
+    display: flex;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* Sidebar */
+.sidebar {
+    flex: 0 1 15%;
+    background-color: #3b5998;
+    margin-right: 10px;
+    padding: 10px;
+    color: #fff;
+    height: 500px;
+    font-size: 18px;
+}
+.sidebar li {
+    margin-bottom: 10px;
+}
+.sidebar li a:hover {
+    color: rgb(238, 174, 56);
+}
+.sidebar ul li:last-child {
+    margin-top: 50px;
 }
 
-.App-link {
-  color: #61dafb;
+/* Content */
+.content {
+    flex: 0 1 85%;
+}
+.content-image {
+    background: url('https://helpx.adobe.com/content/dam/help/en/photoshop/using/convert-color-image-black-white/jcr_content/main-pars/before_and_after/image-before/Landscape-Color.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 150px;
+}
+.content-info {
+    display: flex;
+}
+.content-ava {
+    max-width: 110px;
+    padding: 10px 25px 10px 10px;
+}
+.content-info ul {
+    padding: 10px;
+    color: #5a5a5a
+}
+.content-info li {
+    margin-bottom: 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+/* Footer */
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+    background-color:#3b5998 ;
+    font-size: 20px;
+    color: #fff;
+    margin-top: 10px;
 }
