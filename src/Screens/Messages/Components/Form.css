@@ -1,0 +1,11 @@
+.sender {
+    display: flex;
+}
+.sender input {
+    width: 100%;
+    font-size: 18px;
+    padding: 0 10px;
+}
+.sender button {
+    padding: 5px 10px;
+}

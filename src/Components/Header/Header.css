@@ -1,0 +1,15 @@
+/* Header  */
+header {
+    background-color: #3b5998;
+    padding: 10px 0 ;
+    margin-bottom: 10px;
+}
+.header-row {
+    display: flex;
+    color: #fff;
+    font-size: 40px;
+    font-weight: 600;
+}
+.header-row a:hover{
+    color:rgb(238, 174, 56);
+}

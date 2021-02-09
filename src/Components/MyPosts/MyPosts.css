@@ -1,0 +1,27 @@
+.my-posts h2 {
+    color:  #5a5a5a;
+    margin: 20px 0;
+}
+.my-posts textarea {
+    padding: 10px;
+    width: calc(100% - 22px);
+    min-height: 70px;
+    font-size: 16px;
+    font-family: arial;
+    background-color: #f3f3f3;
+    border-radius: 5px;
+    border: 1px #5a5a5a solid;
+}
+
+.my-posts button {
+    margin-top: 10px;
+    font-size: 18px;
+    padding: 5px 10px;
+    background-color:#3b5998;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.my-posts > div {
+    text-align: right;
+}

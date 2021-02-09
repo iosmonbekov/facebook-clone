@@ -1,0 +1,20 @@
+
+/* Sidebar */
+.sidebar {
+    flex: 0 1 15%;
+    background-color: #3b5998;
+    margin-right: 10px;
+    padding: 10px;
+    color: #fff;
+    height: 500px;
+    font-size: 18px;
+}
+.sidebar li {
+    margin-bottom: 10px;
+}
+.sidebar li a:hover {
+    color: rgb(238, 174, 56);
+}
+.sidebar ul li:last-child {
+    margin-top: 50px;
+}

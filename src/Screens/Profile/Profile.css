@@ -1,0 +1,25 @@
+/* Profile */
+
+.profile {
+    flex: 0 1 85%;
+}
+.profile-image {
+    background: url('https://helpx.adobe.com/content/dam/help/en/photoshop/using/convert-color-image-black-white/jcr_content/main-pars/before_and_after/image-before/Landscape-Color.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 150px;
+}
+.profile-info {
+    display: flex;
+}
+.profile-ava {
+    max-width: 110px;
+    padding: 10px 25px 10px 10px;
+}
+.profile-info ul {
+    padding: 10px;
+    color: #5a5a5a
+}
+.profile-info li {
+    margin-bottom: 10px;
+}

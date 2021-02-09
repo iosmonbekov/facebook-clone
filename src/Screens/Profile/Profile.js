@@ -1,12 +1,14 @@
 import React from 'react'
+import MyPosts from '../../Components/MyPosts/MyPosts'
+import './Profile.css'
 
-export default function Profile() {
+export default function Profile(props) {
     return (
-        <div className="content">
-            <div className="content-image"></div>
-            <div className="content-info">
-                <div className="content-ava">
-                    <img src="https://pngimage.net/wp-content/uploads/2018/05/facebook-profile-icon-png-7.png" alt="Ava" />
+        <div className="profile">
+            <div className="profile-image"></div>
+            <div className="profile-info">
+                <div className="profile-ava">
+                    <img src="https://images.hdqwalls.com/wallpapers/deadpool-art-4k-2018-y4.jpg" alt="Ava" />
                 </div>
                 <ul>
                     <li>
@@ -18,7 +20,7 @@ export default function Profile() {
                     <li>Web site: https://iosmonbekov.com</li>
                 </ul>
             </div>
-
+            <MyPosts />
         </div>
     )
 }
