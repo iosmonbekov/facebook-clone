@@ -1,0 +1,18 @@
+.letter {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.letter div:first-child {
+    width: 25px;
+    height: 25px;
+    background-color: red;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.letter div:last-child {
+    border: 2px solid grey;
+    padding: 5px;
+    border-radius: 5px;
+}

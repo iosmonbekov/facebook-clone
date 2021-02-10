@@ -15,8 +15,8 @@ export default function App() {
         <main>
             <div className="container main-row">
                 <Sidebar />
-                <Route path="/profile" exact component={Profile} />
-                <Route path="/messages" exact component={Messages} />
+                <Route path="/profile"  component={Profile} />
+                <Route path="/messages"  component={Messages} />
             </div>
         </main>
         <Footer />

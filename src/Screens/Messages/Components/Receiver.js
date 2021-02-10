@@ -1,8 +1,13 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import './Receiver.css'
 
-export default function Receiver() {
+export default function Receiver(props) {
     return (
-        <li className='receiver' ><div style={{background: 'green'}}></div><span>Naruto </span></li>
+        <Link to={'/messages/' + props.name}>
+            <li className='receiver' >
+                <div style={{background: 'green'}}></div><span>{props.name} </span>
+            </li>
+        </Link>
     )
 }

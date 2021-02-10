@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import './MyPosts.css'
-import Post from './Post/Post'
+import Post from '../Post/Post'
 
 export default function MyPosts(props) {
     const [list, setList] = useState([])
@@ -20,7 +20,7 @@ export default function MyPosts(props) {
                 <button onClick={addPost}>Send</button>
             </div>
             {
-                list.map( (el, index) => {
+                list.slice(0).reverse().map( (el, index) => {
                     return <Post key={index} text={el} />
                 })
             }
