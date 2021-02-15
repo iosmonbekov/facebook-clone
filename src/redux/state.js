@@ -1,10 +1,11 @@
 const state = {
   profilePage: {
     posts: [
-      "Naruto is Hokage!!!",
-      "I love anime",
-      "I love Programing ",
-      "How to become a hero? ",
+      { id: 1, post: "Naruto is Hokage!!!" },
+      { id: 2, post: "I love anime" },
+      { id: 3, post: "I love Programing " },
+      { id: 4, post: "How to become a hero? " },
+      { id: 5, post: "Become the best version of Yourself" },
     ],
   },
   messagesPage: {
@@ -15,6 +16,14 @@ const state = {
       { id: 4, name: "Kirito" },
     ],
   },
+};
+
+export const addPost = (text) => {
+  const newPost = {
+    id: 6,
+    post: text,
+  };
+  state.profilePage.posts.push(newPost);
 };
 
 export default state;

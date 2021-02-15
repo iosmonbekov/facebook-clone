@@ -5,6 +5,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 // Data from state
 import state from "./redux/state";
+import { addPost } from "./redux/state";
 
 ReactDOM.render(
   <React.StrictMode>
