@@ -17,7 +17,14 @@ export default function App(props) {
             <Sidebar />
             <Route
               path="/profile"
-              render={() => <Profile data={props.data.profilePage.posts} />}
+              render={() => (
+                <Profile
+                  data={props.data.profilePage.posts}
+                  newPostText={props.data.profilePage.newPostText}
+                  addPost={props.addPost}
+                  setNewPostText={props.setNewPostText}
+                />
+              )}
             />
             <Route
               path="/messages"

@@ -6,12 +6,21 @@ export default function MyPosts(props) {
   let value = React.createRef();
   const addPost = () => {
     let text = value.current.value;
-    console.log(text);
+    props.addPost(text);
+    props.setNewPostText("");
+  };
+  const onChnageHandler = (text) => {
+    props.setNewPostText(text);
   };
   return (
     <div className="my-posts">
       <h2>My Posts</h2>
-      <textarea placeholder="Your news..." ref={value} />
+      <textarea
+        onChange={(e) => onChnageHandler(e.target.value)}
+        placeholder="Your news..."
+        ref={value}
+        value={props.newPostText}
+      />
       <div>
         <button onClick={addPost}>Send</button>
       </div>

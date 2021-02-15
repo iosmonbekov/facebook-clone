@@ -1,3 +1,5 @@
+import { renderAllTree } from "../render";
+
 const state = {
   profilePage: {
     posts: [
@@ -7,6 +9,7 @@ const state = {
       { id: 4, post: "How to become a hero? " },
       { id: 5, post: "Become the best version of Yourself" },
     ],
+    newPostText: "iosmonbekov",
   },
   messagesPage: {
     receiver: [
@@ -19,11 +22,18 @@ const state = {
 };
 
 export const addPost = (text) => {
+  const index =
+    state.profilePage.posts[state.profilePage.posts.length - 1].id + 1;
   const newPost = {
-    id: 6,
+    id: index,
     post: text,
   };
   state.profilePage.posts.push(newPost);
+  renderAllTree(state);
 };
-
+export const setNewPostText = (text) => {
+  debugger;
+  state.profilePage.newPostText = text;
+  renderAllTree(state);
+};
 export default state;
