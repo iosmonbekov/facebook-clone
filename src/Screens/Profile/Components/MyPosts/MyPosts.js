@@ -5,8 +5,7 @@ import Post from "../Post/Post";
 export default function MyPosts(props) {
   let value = React.createRef();
   const addPost = () => {
-    let text = value.current.value;
-    props.addPost(text);
+    props.addPost();
     props.setNewPostText("");
   };
   const onChnageHandler = (text) => {
