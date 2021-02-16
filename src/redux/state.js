@@ -1,4 +1,6 @@
-import { renderAllTree } from "../render";
+let renderAllTree = () => {
+  console.log("state changed");
+};
 
 const state = {
   profilePage: {
@@ -9,7 +11,7 @@ const state = {
       { id: 4, post: "How to become a hero? " },
       { id: 5, post: "Become the best version of Yourself" },
     ],
-    newPostText: "iosmonbekov",
+    newPostText: "",
   },
   messagesPage: {
     receiver: [
@@ -35,5 +37,9 @@ export const setNewPostText = (text) => {
   debugger;
   state.profilePage.newPostText = text;
   renderAllTree(state);
+};
+
+export const subscribe = (observer) => {
+  renderAllTree = observer;
 };
 export default state;
