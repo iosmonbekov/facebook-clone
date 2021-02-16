@@ -21,8 +21,7 @@ export default function App(props) {
                 <Profile
                   data={props.data.profilePage.posts}
                   newPostText={props.data.profilePage.newPostText}
-                  addPost={props.addPost}
-                  setNewPostText={props.setNewPostText}
+                  dispatch={props.dispatch}
                 />
               )}
             />

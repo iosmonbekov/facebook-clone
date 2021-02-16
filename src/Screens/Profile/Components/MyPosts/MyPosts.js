@@ -5,11 +5,11 @@ import Post from "../Post/Post";
 export default function MyPosts(props) {
   let value = React.createRef();
   const addPost = () => {
-    props.addPost();
-    props.setNewPostText("");
+    props.dispatch({ type: "ADD-POST" });
+    props.dispatch({ type: "SET-NEW-POST-TEXT", payload: "" });
   };
   const onChnageHandler = (text) => {
-    props.setNewPostText(text);
+    props.dispatch({ type: "SET-NEW-POST-TEXT", payload: text });
   };
   return (
     <div className="my-posts">

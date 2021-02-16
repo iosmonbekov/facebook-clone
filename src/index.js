@@ -8,11 +8,7 @@ import App from "./App";
 const renderAllTree = (state) => {
   ReactDOM.render(
     <React.StrictMode>
-      <App
-        data={state}
-        addPost={store.addPost.bind(store)}
-        setNewPostText={store.setNewPostText.bind(store)}
-      />
+      <App data={state} dispatch={store.dispatch.bind(store)} />
     </React.StrictMode>,
     document.getElementById("root")
   );

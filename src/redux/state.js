@@ -19,34 +19,32 @@ let store = {
       ],
     },
   },
-
-  getState() {
-    return this._state;
-  },
-
   _renderAllTree() {
     console.log("state changed");
   },
 
-  addPost() {
-    const index =
-      this._state.profilePage.posts[this._state.profilePage.posts.length - 1]
-        .id + 1;
-    const newPost = {
-      id: index,
-      post: this._state.profilePage.newPostText,
-    };
-    this._state.profilePage.posts.push(newPost);
-    this._renderAllTree(this._state);
+  getState() {
+    return this._state;
   },
-
-  setNewPostText(text) {
-    this._state.profilePage.newPostText = text;
-    this._renderAllTree(this._state);
-  },
-
   subscribe(observer) {
     this._renderAllTree = observer;
+  },
+
+  dispatch(action) {
+    if (action.type === "ADD-POST") {
+      const index =
+        this._state.profilePage.posts[this._state.profilePage.posts.length - 1]
+          .id + 1;
+      const newPost = {
+        id: index,
+        post: this._state.profilePage.newPostText,
+      };
+      this._state.profilePage.posts.push(newPost);
+      this._renderAllTree(this._state);
+    } else if (action.type === "SET-NEW-POST-TEXT") {
+      this._state.profilePage.newPostText = action.payload;
+      this._renderAllTree(this._state);
+    }
   },
 };
 
