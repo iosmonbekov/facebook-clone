@@ -1,9 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import store from "./redux/state";
+import store from "./redux/reduxStore";
 import "./index.css";
 import App from "./App";
-// Data from state
 
 const renderAllTree = (state) => {
   ReactDOM.render(
@@ -16,4 +15,6 @@ const renderAllTree = (state) => {
 
 renderAllTree(store.getState());
 
-store.subscribe(renderAllTree);
+store.subscribe(() => {
+  renderAllTree(store.getState());
+});
