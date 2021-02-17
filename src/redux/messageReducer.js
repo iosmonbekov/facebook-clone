@@ -1,0 +1,29 @@
+const SET_NEW_MESSAGE_TEXT = "SET_NEW_MESSAGE_TEXT";
+const SEND_MESSAGE = "SEND_MESSAGE";
+
+const messageReducer = (state, action) => {
+  switch (action.type) {
+    case SET_NEW_MESSAGE_TEXT:
+      state.newMessageText = action.payload;
+      return state;
+    case SEND_MESSAGE:
+      const index = state.messages[state.messages.length - 1].id + 1;
+      const newMessage = {
+        id: index,
+        text: state.newMessageText,
+      };
+      state.messages.push(newMessage);
+      state.newMessageText = "";
+      return state;
+    default:
+      return state;
+  }
+};
+
+export const setNewMessageText = (payload) => ({
+  type: SET_NEW_MESSAGE_TEXT,
+  payload,
+});
+export const sendMessage = () => ({ type: SEND_MESSAGE });
+
+export default messageReducer;

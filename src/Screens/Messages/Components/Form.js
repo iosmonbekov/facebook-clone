@@ -1,5 +1,5 @@
 import React from "react";
-import { sendMessage, setNewMessageText } from "../../../redux/state";
+import { sendMessage, setNewMessageText } from "../../../redux/messageReducer";
 import "./Form.css";
 
 export default function Form(props) {

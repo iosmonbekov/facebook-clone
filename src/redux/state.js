@@ -1,8 +1,5 @@
-const ADD_POST = "ADD_POST";
-const SET_NEW_POST_TEXT = "SET_NEW_POST_TEXT";
-
-const SET_NEW_MESSAGE_TEXT = "SET_NEW_MESSAGE_TEXT";
-const SEND_MESSAGE = "SEND_MESSAGE";
+import messageReducer from "./messageReducer";
+import profileReducer from "./profileReducer";
 
 let store = {
   _state: {
@@ -42,48 +39,11 @@ let store = {
   },
 
   dispatch(action) {
-    if (action.type === ADD_POST) {
-      const index =
-        this._state.profilePage.posts[this._state.profilePage.posts.length - 1]
-          .id + 1;
-      const newPost = {
-        id: index,
-        post: this._state.profilePage.newPostText,
-      };
-      this._state.profilePage.posts.push(newPost);
-      this._renderAllTree(this._state);
-    } else if (action.type === SET_NEW_POST_TEXT) {
-      this._state.profilePage.newPostText = action.payload;
-      this._renderAllTree(this._state);
-    } else if (action.type === SET_NEW_MESSAGE_TEXT) {
-      this._state.messagesPage.newMessageText = action.payload;
-      this._renderAllTree(this._state);
-    } else if (action.type === SEND_MESSAGE) {
-      const index =
-        this._state.messagesPage.messages[
-          this._state.messagesPage.messages.length - 1
-        ].id + 1;
-      const newMessage = {
-        id: index,
-        text: this._state.messagesPage.newMessageText,
-      };
-      this._state.messagesPage.messages.push(newMessage);
-      this._state.messagesPage.newMessageText = "";
-      this._renderAllTree(this._state);
-    }
+    this._state.profilePage = profileReducer(this._state.profilePage, action);
+    this._state.messagesPage = messageReducer(this._state.messagesPage, action);
+
+    this._renderAllTree(this._state);
   },
 };
-
-//Actions
-export const addPostActionCreator = () => ({ type: ADD_POST });
-export const setNewPostText = (payload) => ({
-  type: SET_NEW_POST_TEXT,
-  payload,
-});
-export const setNewMessageText = (payload) => ({
-  type: SET_NEW_MESSAGE_TEXT,
-  payload,
-});
-export const sendMessage = () => ({ type: SEND_MESSAGE });
 
 export default store;
