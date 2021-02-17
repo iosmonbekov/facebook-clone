@@ -1,15 +1,15 @@
 import React from "react";
 import "./MyPosts.css";
 import Post from "../Post/Post";
+import { addPostActionCreator, setNewPostText } from "../../../../redux/state";
 
 export default function MyPosts(props) {
-  let value = React.createRef();
   const addPost = () => {
-    props.dispatch({ type: "ADD-POST" });
-    props.dispatch({ type: "SET-NEW-POST-TEXT", payload: "" });
+    props.dispatch(addPostActionCreator());
+    props.dispatch(setNewPostText(""));
   };
   const onChnageHandler = (text) => {
-    props.dispatch({ type: "SET-NEW-POST-TEXT", payload: text });
+    props.dispatch(setNewPostText(text));
   };
   return (
     <div className="my-posts">
@@ -17,7 +17,6 @@ export default function MyPosts(props) {
       <textarea
         onChange={(e) => onChnageHandler(e.target.value)}
         placeholder="Your news..."
-        ref={value}
         value={props.newPostText}
       />
       <div>

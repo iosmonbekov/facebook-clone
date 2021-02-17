@@ -28,7 +28,12 @@ export default function App(props) {
             <Route
               path="/messages"
               render={() => (
-                <Messages data={props.data.messagesPage.receiver} />
+                <Messages
+                  data={props.data.messagesPage.receiver}
+                  messages={props.data.messagesPage.messages}
+                  newMessageText={props.data.messagesPage.newMessageText}
+                  dispatch={props.dispatch}
+                />
               )}
             />
           </div>

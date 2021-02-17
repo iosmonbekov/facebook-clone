@@ -1,3 +1,9 @@
+const ADD_POST = "ADD_POST";
+const SET_NEW_POST_TEXT = "SET_NEW_POST_TEXT";
+
+const SET_NEW_MESSAGE_TEXT = "SET_NEW_MESSAGE_TEXT";
+const SEND_MESSAGE = "SEND_MESSAGE";
+
 let store = {
   _state: {
     profilePage: {
@@ -17,6 +23,11 @@ let store = {
         { id: 3, name: "Yagami" },
         { id: 4, name: "Kirito" },
       ],
+      messages: [
+        { id: 1, text: "Hi" },
+        { id: 2, text: "Bye" },
+      ],
+      newMessageText: "",
     },
   },
   _renderAllTree() {
@@ -31,7 +42,7 @@ let store = {
   },
 
   dispatch(action) {
-    if (action.type === "ADD-POST") {
+    if (action.type === ADD_POST) {
       const index =
         this._state.profilePage.posts[this._state.profilePage.posts.length - 1]
           .id + 1;
@@ -41,11 +52,38 @@ let store = {
       };
       this._state.profilePage.posts.push(newPost);
       this._renderAllTree(this._state);
-    } else if (action.type === "SET-NEW-POST-TEXT") {
+    } else if (action.type === SET_NEW_POST_TEXT) {
       this._state.profilePage.newPostText = action.payload;
+      this._renderAllTree(this._state);
+    } else if (action.type === SET_NEW_MESSAGE_TEXT) {
+      this._state.messagesPage.newMessageText = action.payload;
+      this._renderAllTree(this._state);
+    } else if (action.type === SEND_MESSAGE) {
+      const index =
+        this._state.messagesPage.messages[
+          this._state.messagesPage.messages.length - 1
+        ].id + 1;
+      const newMessage = {
+        id: index,
+        text: this._state.messagesPage.newMessageText,
+      };
+      this._state.messagesPage.messages.push(newMessage);
+      this._state.messagesPage.newMessageText = "";
       this._renderAllTree(this._state);
     }
   },
 };
+
+//Actions
+export const addPostActionCreator = () => ({ type: ADD_POST });
+export const setNewPostText = (payload) => ({
+  type: SET_NEW_POST_TEXT,
+  payload,
+});
+export const setNewMessageText = (payload) => ({
+  type: SET_NEW_MESSAGE_TEXT,
+  payload,
+});
+export const sendMessage = () => ({ type: SEND_MESSAGE });
 
 export default store;

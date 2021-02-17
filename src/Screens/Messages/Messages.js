@@ -18,9 +18,14 @@ export default function Messages(props) {
         </div>
         <div>
           <div className="dialog">
-            <Letter />
+            {props.messages.map((el) => {
+              return <Letter key={el.id} text={el.text} />;
+            })}
           </div>
-          <Form />
+          <Form
+            dispatch={props.dispatch}
+            newMessageText={props.newMessageText}
+          />
         </div>
       </div>
     </div>

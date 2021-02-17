@@ -1,11 +1,11 @@
-import React from 'react'
-import './Letter.css'
+import React from "react";
+import "./Letter.css";
 
 export default function Letter(props) {
-    return (
-        <div className='letter'>
-            <div></div>
-            <div>Hello My brother</div>
-        </div>
-    )
+  return (
+    <div className="letter">
+      <div></div>
+      <div>{props.text}</div>
+    </div>
+  );
 }
