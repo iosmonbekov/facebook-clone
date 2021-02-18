@@ -1,18 +1,13 @@
 import React from "react";
 import "./MyPosts.css";
 import Post from "../Post/Post";
-import {
-  addPostActionCreator,
-  setNewPostText,
-} from "../../../../redux/profileReducer";
 
 export default function MyPosts(props) {
   const addPost = () => {
-    props.dispatch(addPostActionCreator());
-    props.dispatch(setNewPostText(""));
+    props.addPost();
   };
   const onChnageHandler = (text) => {
-    props.dispatch(setNewPostText(text));
+    props.changePostText(text);
   };
   return (
     <div className="my-posts">
@@ -20,12 +15,12 @@ export default function MyPosts(props) {
       <textarea
         onChange={(e) => onChnageHandler(e.target.value)}
         placeholder="Your news..."
-        value={props.newPostText}
+        value={props.profilePage.newPostText}
       />
       <div>
         <button onClick={addPost}>Send</button>
       </div>
-      {props.data
+      {props.profilePage.posts
         .slice(0)
         .reverse()
         .map((el, index) => {

@@ -1,13 +1,12 @@
 import React from "react";
-import { sendMessage, setNewMessageText } from "../../../redux/messageReducer";
 import "./Form.css";
 
 export default function Form(props) {
   const onChangeHandler = (text) => {
-    props.dispatch(setNewMessageText(text));
+    props.changeMessageText(text);
   };
   const onClickHandler = () => {
-    props.dispatch(sendMessage());
+    props.addMessage();
   };
   return (
     <div className="sender">

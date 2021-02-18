@@ -11,20 +11,21 @@ export default function Messages(props) {
       <div className="messages">
         <div>
           <ul>
-            {props.data.map((el, index) => {
+            {props.messagesPage.receiver.map((el, index) => {
               return <Receiver key={index} name={el.name} />;
             })}
           </ul>
         </div>
         <div>
           <div className="dialog">
-            {props.messages.map((el) => {
+            {props.messagesPage.messages.map((el) => {
               return <Letter key={el.id} text={el.text} />;
             })}
           </div>
           <Form
-            dispatch={props.dispatch}
-            newMessageText={props.newMessageText}
+            addMessage={props.addMessage}
+            changeMessageText={props.changeMessageText}
+            newMessageText={props.messagesPage.newMessageText}
           />
         </div>
       </div>

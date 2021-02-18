@@ -3,11 +3,11 @@ import "./App.css";
 import Footer from "./Components/Footer/Footer";
 import Header from "./Components/Header/Header";
 import Sidebar from "./Components/Sidebar/Sidebar";
-import Profile from "./Screens/Profile/Profile";
 import { BrowserRouter, Route } from "react-router-dom";
-import Messages from "./Screens/Messages/Messages";
+import ProfileContainer from "./Screens/Profile/ProfileContainer";
+import MessagesContainer from "./Screens/Messages/MessagesContainer";
 
-export default function App(props) {
+export default function App() {
   return (
     <div className="wrapper">
       <BrowserRouter>
@@ -15,27 +15,8 @@ export default function App(props) {
         <main>
           <div className="container main-row">
             <Sidebar />
-            <Route
-              path="/profile"
-              render={() => (
-                <Profile
-                  data={props.data.profilePage.posts}
-                  newPostText={props.data.profilePage.newPostText}
-                  dispatch={props.dispatch}
-                />
-              )}
-            />
-            <Route
-              path="/messages"
-              render={() => (
-                <Messages
-                  data={props.data.messagesPage.receiver}
-                  messages={props.data.messagesPage.messages}
-                  newMessageText={props.data.messagesPage.newMessageText}
-                  dispatch={props.dispatch}
-                />
-              )}
-            />
+            <Route path="/profile" render={() => <ProfileContainer />} />
+            <Route path="/messages" render={() => <MessagesContainer />} />
           </div>
         </main>
         <Footer />
