@@ -6,6 +6,7 @@ import Sidebar from "./Components/Sidebar/Sidebar";
 import { BrowserRouter, Route } from "react-router-dom";
 import ProfileContainer from "./Screens/Profile/ProfileContainer";
 import MessagesContainer from "./Screens/Messages/MessagesContainer";
+import UsersContainer from "./Screens/Users/UsersContainer";
 
 export default function App() {
   return (
@@ -17,6 +18,7 @@ export default function App() {
             <Sidebar />
             <Route path="/profile" render={() => <ProfileContainer />} />
             <Route path="/messages" render={() => <MessagesContainer />} />
+            <Route path="/users" render={() => <UsersContainer />} />
           </div>
         </main>
         <Footer />
