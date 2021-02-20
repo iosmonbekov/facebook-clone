@@ -4,10 +4,10 @@ import Post from "../Post/Post";
 
 export default function MyPosts(props) {
   const addPost = () => {
-    props.addPost();
+    props.addPostActionCreator();
   };
   const onChnageHandler = (text) => {
-    props.changePostText(text);
+    props.setNewPostText(text);
   };
   return (
     <div className="my-posts">

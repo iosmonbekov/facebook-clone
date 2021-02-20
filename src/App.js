@@ -9,20 +9,23 @@ import MessagesContainer from "./Screens/Messages/MessagesContainer";
 import UsersContainer from "./Screens/Users/UsersContainer";
 
 export default function App() {
-  return (
-    <div className="wrapper">
-      <BrowserRouter>
-        <Header />
-        <main>
-          <div className="container main-row">
-            <Sidebar />
-            <Route path="/profile" render={() => <ProfileContainer />} />
-            <Route path="/messages" render={() => <MessagesContainer />} />
-            <Route path="/users" render={() => <UsersContainer />} />
-          </div>
-        </main>
-        <Footer />
-      </BrowserRouter>
-    </div>
-  );
+    return (
+        <div className="wrapper">
+            <BrowserRouter>
+                <Header />
+                <main>
+                    <div className="container main-row">
+                        <Sidebar />
+                        <Route
+                            path="/profile/:userId?"
+                            component={ProfileContainer}
+                        />
+                        <Route path="/messages" component={MessagesContainer} />
+                        <Route path="/users" component={UsersContainer} />
+                    </div>
+                </main>
+                <Footer />
+            </BrowserRouter>
+        </div>
+    );
 }

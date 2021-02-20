@@ -8,19 +8,9 @@ let mapStateToProps = (state) => {
   };
 };
 
-let mapDispatchtoState = (dispatch) => {
-  return {
-    changeMessageText(text) {
-      dispatch(setNewMessageText(text));
-    },
-    addMessage() {
-      dispatch(sendMessage());
-    },
-  };
-};
-const MessagesContainer = connect(
-  mapStateToProps,
-  mapDispatchtoState
-)(Messages);
+const MessagesContainer = connect(mapStateToProps, {
+  sendMessage,
+  setNewMessageText,
+})(Messages);
 
 export default MessagesContainer;

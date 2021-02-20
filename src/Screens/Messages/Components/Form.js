@@ -3,10 +3,10 @@ import "./Form.css";
 
 export default function Form(props) {
   const onChangeHandler = (text) => {
-    props.changeMessageText(text);
+    props.setNewMessageText(text);
   };
   const onClickHandler = () => {
-    props.addMessage();
+    props.sendMessage();
   };
   return (
     <div className="sender">

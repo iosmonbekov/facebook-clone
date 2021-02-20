@@ -1,27 +1,22 @@
 import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 import {
-  addPostActionCreator,
-  setNewPostText,
+    addPostActionCreator,
+    setNewPostText,
+    setUserProfile,
 } from "../../redux/profileReducer";
 import Profile from "./Profile";
 
 let mapStatetoProps = (state) => {
-  return {
-    profilePage: state.profilePage,
-  };
+    return {
+        profilePage: state.profilePage,
+    };
 };
 
-let mapDispatchtoProps = (dispatch) => {
-  return {
-    changePostText(text) {
-      dispatch(setNewPostText(text));
-    },
-    addPost() {
-      dispatch(addPostActionCreator());
-    },
-  };
-};
+const ProfileWithRouter = withRouter(Profile);
 
-const ProfileContainer = connect(mapStatetoProps, mapDispatchtoProps)(Profile);
-
-export default ProfileContainer;
+export default connect(mapStatetoProps, {
+    setNewPostText,
+    addPostActionCreator,
+    setUserProfile,
+})(ProfileWithRouter);

@@ -1,55 +1,63 @@
 .users {
-  width: 100%;
-  padding: 0.1px;
+    width: 100%;
+    padding: 0.1px;
+}
+.users div:first-child {
+    text-align: center;
+}
+.users div:first-child > button {
+    font-size: 16px;
+    margin: 0 5px;
+    padding: 2px 4px;
 }
 .user {
-  display: flex;
-  align-items: center;
-  border: 1px solid rgb(182, 182, 182);
-  padding: 5px;
-  border-radius: 10px;
-  width: 100%;
-  margin: 10px 10px 20px 10px;
+    display: flex;
+    align-items: center;
+    border: 1px solid rgb(182, 182, 182);
+    padding: 5px;
+    border-radius: 10px;
+    width: 100%;
+    margin: 10px 10px 20px 10px;
 }
 
 .user > div:first-child {
-  flex: 0 1 15%;
-  margin-right: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    flex: 0 1 15%;
+    margin-right: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .user > div:first-child > button {
-  margin-top: 10px;
-  font-size: 16px;
-  color: #fff;
-  padding: 3px 12px;
-  background-color: #3b5998;
+    margin-top: 10px;
+    font-size: 16px;
+    color: #fff;
+    padding: 3px 12px;
+    background-color: #3b5998;
 }
 
 .user > div:last-child {
-  flex: 0 1 80%;
-  align-self: flex-start;
-  display: flex;
-  justify-content: space-between;
+    flex: 0 1 80%;
+    align-self: flex-start;
+    display: flex;
+    justify-content: space-between;
 }
 
 .user_photo {
-  width: 100px;
-  height: 100px;
-  overflow: hidden;
-  border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    overflow: hidden;
+    border-radius: 50%;
 }
 
 .user_info,
 .user_location {
-  margin-top: 30px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .user_info > span:first-child {
-  font-size: 24px;
-  margin: 0px 0px 40px;
+    font-size: 24px;
+    margin: 0px 0px 20px;
 }

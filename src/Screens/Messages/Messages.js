@@ -23,8 +23,8 @@ export default function Messages(props) {
             })}
           </div>
           <Form
-            addMessage={props.addMessage}
-            changeMessageText={props.changeMessageText}
+            sendMessage={props.sendMessage}
+            setNewMessageText={props.setNewMessageText}
             newMessageText={props.messagesPage.newMessageText}
           />
         </div>
