@@ -1,11 +1,8 @@
 import { connect } from "react-redux";
 import {
     followOrUnfollow,
-    setUsers,
-    setTotalUsersCount,
-    setNumberOfPages,
     setCurrentPage,
-    changeLoader,
+    getAllUsers,
 } from "../../redux/usersReducer";
 import Users from "./Users";
 
@@ -15,16 +12,14 @@ const mapStateToProps = (state) => {
         pages: state.usersPage.pages,
         currentPage: state.usersPage.currentPage,
         isLoading: state.usersPage.isLoading,
+        pageSize: state.usersPage.pageSize,
     };
 };
 
 let UsersContainer = connect(mapStateToProps, {
     followOrUnfollow,
-    setUsers,
-    setTotalUsersCount,
-    setNumberOfPages,
     setCurrentPage,
-    changeLoader,
+    getAllUsers,
 })(Users);
 
 export default UsersContainer;

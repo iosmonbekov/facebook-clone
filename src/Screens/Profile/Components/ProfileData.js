@@ -8,7 +8,7 @@ export default function ProfileData(props) {
                 <div className="profile-ava">
                     <img
                         src={
-                            props.photos.large ||
+                            props.photo ||
                             "https://images.hdqwalls.com/wallpapers/deadpool-art-4k-2018-y4.jpg"
                         }
                         alt="Ava"
@@ -16,20 +16,16 @@ export default function ProfileData(props) {
                 </div>
                 <ul>
                     <li>
-                        <h2>{props.fullName}</h2>
+                        <h2>{props.name}</h2>
                     </li>
                     <li>
-                        <b>City:</b> SomeWhere
+                        <b>City: </b> {props.location.city}
                     </li>
                     <li>
-                        <b>Status:</b>{" "}
-                        {props.lookingForAJob
-                            ? "Searching for a job"
-                            : "Working."}
+                        <b>Country:</b> {props.location.country}
                     </li>
                     <li>
-                        <b>About me:</b>{" "}
-                        {props.aboutMe || "Nothing about me, I'm just a bot"}
+                        <b>Status:</b> {props.status}
                     </li>
                 </ul>
             </div>

@@ -1,15 +1,11 @@
+import axios from "axios";
+
 const ADD_POST = "ADD_POST";
 const SET_NEW_POST_TEXT = "SET_NEW_POST_TEXT";
 const SET_USER_PROFILE = "SET_USER_PROFILE";
 
 let initialState = {
-    posts: [
-        { id: 1, post: "Naruto is Hokage!!!" },
-        { id: 2, post: "I love anime" },
-        { id: 3, post: "I love Programing " },
-        { id: 4, post: "How to become a hero? " },
-        { id: 5, post: "Become the best version of Yourself" },
-    ],
+    posts: [{ id: 1, post: "Naruto is Hokage!!!" }],
     newPostText: "",
     userProfile: null,
 };
@@ -53,3 +49,11 @@ export const setUserProfile = (payload) => ({
     type: SET_USER_PROFILE,
     payload,
 });
+
+//Thunks
+
+export const getUser = (id) => (dispatch) => {
+    axios.get("/users/" + id).then((response) => {
+        dispatch(setUserProfile(response.data));
+    });
+};

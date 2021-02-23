@@ -1,4 +1,3 @@
-import axios from "axios";
 import React, { useEffect } from "react";
 import Loader from "../../Components/Loader/Loader";
 import MyPosts from "./Components/MyPosts/MyPosts";
@@ -6,15 +5,9 @@ import ProfileData from "./Components/ProfileData";
 import "./Profile.css";
 
 export default function Profile(props) {
-    const userId = props.match.params.userId || 2;
+    const userId = props.match.params.userId || 1;
     useEffect(() => {
-        axios
-            .get(
-                "https://social-network.samuraijs.com/api/1.0/profile/" + userId
-            )
-            .then((response) => {
-                props.setUserProfile(response.data);
-            });
+        props.getUser(userId);
     }, []);
 
     if (!props.profilePage.userProfile) {
@@ -24,9 +17,10 @@ export default function Profile(props) {
     return (
         <div className="profile">
             <ProfileData
-                fullName={props.profilePage.userProfile.fullName}
-                aboutMe={props.profilePage.userProfile.aboutMe}
-                photos={props.profilePage.userProfile.photos}
+                name={props.profilePage.userProfile.name}
+                status={props.profilePage.userProfile.status}
+                photo={props.profilePage.userProfile.photo}
+                location={props.profilePage.userProfile.location}
             />
             <MyPosts
                 profilePage={props.profilePage}

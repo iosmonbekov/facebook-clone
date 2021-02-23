@@ -2,7 +2,7 @@
     width: 100%;
     padding: 0.1px;
 }
-.users div:first-child {
+.users > div:first-child {
     text-align: center;
 }
 .users div:first-child > button {

@@ -1,9 +1,10 @@
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
+import { compose } from "redux";
 import {
     addPostActionCreator,
     setNewPostText,
-    setUserProfile,
+    getUser,
 } from "../../redux/profileReducer";
 import Profile from "./Profile";
 
@@ -13,10 +14,11 @@ let mapStatetoProps = (state) => {
     };
 };
 
-const ProfileWithRouter = withRouter(Profile);
-
-export default connect(mapStatetoProps, {
-    setNewPostText,
-    addPostActionCreator,
-    setUserProfile,
-})(ProfileWithRouter);
+export default compose(
+    connect(mapStatetoProps, {
+        setNewPostText,
+        addPostActionCreator,
+        getUser,
+    }),
+    withRouter
+)(Profile);

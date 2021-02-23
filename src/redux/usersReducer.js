@@ -1,17 +1,20 @@
+import axios from "axios";
+
 const FOLLOW = "FOLLOW";
 const SET_USERS = "SET_USERS";
 const SET_TOTAL_COUNT_OF_USERS = "SET_TOTAL_COUNT_OF_USERS";
 const SET_NUMBER_OF_PAGES = "SET_NUMBER_OF_PAGES";
 const SET_CURRENT_PAGE = "SET_CURRENT_PAGE";
 const CHANGE_LODADER = "CHANGE_LODADER";
+const CHANGE_COUNT_OF_PAGES = "CHANGE_COUNT_OF_PAGES";
 
 let initialState = {
     users: [],
     usersTotalCount: 0,
     currentPage: 1,
-    pageSize: 10,
+    pageSize: 3,
     numberOfPages: 0,
-    pages: [1, 2, 3, 4, 5, 6, 7, 8],
+    pages: [],
     isLoading: false,
 };
 
@@ -41,7 +44,9 @@ const usersReducer = (state = initialState, action) => {
         case SET_NUMBER_OF_PAGES:
             return {
                 ...state,
-                numberOfPages: action.payload,
+                numberOfPages: Math.ceil(
+                    state.usersTotalCount / state.pageSize
+                ),
             };
         case SET_CURRENT_PAGE:
             return {
@@ -52,6 +57,13 @@ const usersReducer = (state = initialState, action) => {
             return {
                 ...state,
                 isLoading: action.payload,
+            };
+        case CHANGE_COUNT_OF_PAGES:
+            const pages = [];
+            for (let i = 1; i <= state.numberOfPages; i++) pages.push(i);
+            return {
+                ...state,
+                pages,
             };
         default:
             return state;
@@ -77,9 +89,8 @@ export const setTotalUsersCount = (payload) => ({
     payload,
 });
 
-export const setNumberOfPages = (payload) => ({
+export const setNumberOfPages = () => ({
     type: SET_NUMBER_OF_PAGES,
-    payload,
 });
 
 export const setCurrentPage = (payload) => ({
@@ -91,3 +102,20 @@ export const changeLoader = (payload) => ({
     type: CHANGE_LODADER,
     payload,
 });
+
+export const changeCountOfPages = () => ({
+    type: CHANGE_COUNT_OF_PAGES,
+});
+
+//Thunks
+
+export const getAllUsers = () => (dispatch) => {
+    dispatch(changeLoader(true));
+    axios.get("/users").then((response) => {
+        dispatch(setUsers(response.data));
+        dispatch(setTotalUsersCount(response.data.length));
+        dispatch(setNumberOfPages());
+        dispatch(changeCountOfPages());
+        dispatch(changeLoader(false));
+    });
+};
